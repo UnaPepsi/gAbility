@@ -2,9 +2,10 @@ package ga.guimx.gAbility.utils;
 
 import lombok.Getter;
 
+@Getter
 public enum AbilityType {
-    STRENGTH("name=&6Strength II;lore=&7Get Strength II for 5 seconds.;cooldown=30");
-    @Getter
+    STRENGTH("strength"),
+    RESISTANCE("resistance");
     private final String value;
     AbilityType(String value){
         this.value = value;

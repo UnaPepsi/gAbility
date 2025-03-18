@@ -19,7 +19,7 @@ public class AbilityArgument extends ArgumentResolver<CommandSender, Ability> {
     ){
         Ability ability;
         try {
-            ability = new Ability(AbilityType.fromString(string));
+            ability = Ability.fromAbilityType(AbilityType.fromString(string));
         } catch (IllegalArgumentException e){
             return ParseResult.failure("Invalid ability");
         }

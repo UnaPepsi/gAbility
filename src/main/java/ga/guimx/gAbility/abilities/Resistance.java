@@ -10,12 +10,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class Strength extends BaseAbility{
+public class Resistance extends BaseAbility{
 
     @Override
     protected void abilityLogic(Player player, ItemStack item, Object... unused) {
-        Ability ability = PluginConfig.getAbilities().get(AbilityType.STRENGTH);
-        player.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, (int) (ability.getDuration()*20),1));
+        Ability ability = PluginConfig.getAbilities().get(AbilityType.RESISTANCE);
+        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, (int) (ability.getDuration()*20),1));
         player.sendMessage(Chat.translate(GAbility.getPrefix()+ ability.getUsedMessage()));
         item.setAmount(item.getAmount()-1);
     }

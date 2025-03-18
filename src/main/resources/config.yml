@@ -1,0 +1,29 @@
+messages:
+  prefix: "&f[&6gAbility&f] "
+  plugin_enabled: "&ahas been enabled :D!"
+  plugin_disabled: "&chas been disabled, bye!"
+  plugin_reloaded: "&ahas been reloaded!"
+  no_permissions: "&cYou don't have permissions for this"
+  received_given_ability: "&aYou have received x%amount% %ability%"
+  given_ability: "&a%player% has received x%amount% %ability%"
+  global_item_cooldown: "&cYou're global item cooldown for %minutes%:%seconds%"
+  item_cooldown: "&cYou're on %ability% &ccooldown for %minutes%:%seconds%"
+abilities:
+  global:
+    cooldown: 10 #seconds
+  strength:
+    material_type: BLAZE_POWDER
+    name: "&6Strength II"
+    lore:
+      - "&7Get Strength II for 5 seconds"
+    cooldown: 90
+    duration: 5 #seconds
+    used_message: "&aYou have received &6Strength II &afor 5 seconds!"
+  resistance:
+    material_type: IRON_INGOT
+    name: "&fResistance III"
+    lore:
+      - "&7Get Resistance III for 5 seconds"
+    cooldown: 90
+    duration: 10
+    used_message: "&aYou have received &fResistance III &afor 10 seconds!"

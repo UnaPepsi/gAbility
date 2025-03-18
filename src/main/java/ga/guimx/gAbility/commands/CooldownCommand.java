@@ -14,15 +14,16 @@ import java.util.HashMap;
 
 @Command(name = "ability cooldown",aliases = {"gability cooldown"})
 @Permission("gability.cooldown")
-public class Cooldown {
+public class CooldownCommand {
     @Execute(name="set")
     void setCooldown(@Context CommandSender commandSender, @Arg Player player, @Arg Ability ability, @Arg long cooldown){
         //commandSender.sendMessage("ability: "+ability.getName()+ability.getLore()+ability.getCooldown());
         if (PlayerCooldown.getAbilityCooldowns().containsKey(player.getUniqueId())) {
-            PlayerCooldown.getAbilityCooldowns().get(player.getUniqueId()).put(ability, cooldown);
+            PlayerCooldown.getAbilityCooldowns().get(player.getUniqueId()).put(ability, System.currentTimeMillis()+cooldown*1000);
         }else{
-            PlayerCooldown.getAbilityCooldowns().put(player.getUniqueId(),new HashMap<>(){{put(ability,cooldown);}});
+            PlayerCooldown.getAbilityCooldowns().put(player.getUniqueId(),new HashMap<>(){{put(ability,System.currentTimeMillis()+cooldown*1000);}});
         }
         commandSender.sendMessage("done");
     }
+    //TODO: set global cd and "all" cd
 }
