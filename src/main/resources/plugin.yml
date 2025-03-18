@@ -1,0 +1,6 @@
+name: gAbility
+version: '0.1.0'
+main: ga.guimx.gAbility.GAbility
+api-version: '1.21.4'
+author: 'guimx'
+description: 'Ability plugin'
