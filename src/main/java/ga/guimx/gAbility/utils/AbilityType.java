@@ -5,7 +5,9 @@ import lombok.Getter;
 @Getter
 public enum AbilityType {
     STRENGTH("strength"),
-    RESISTANCE("resistance");
+    RESISTANCE("resistance"),
+    REGENERATION("regeneration"),
+    SWITCHER("switcher");
     private final String value;
     AbilityType(String value){
         this.value = value;

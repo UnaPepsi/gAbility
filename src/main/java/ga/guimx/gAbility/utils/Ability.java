@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -19,10 +20,11 @@ public class Ability {
     private long duration;
     private String usedMessage;
     private String messageTargets;
+    private boolean enchanted;
     public static Ability fromAbilityType(AbilityType abilityType){
         return PluginConfig.getAbilities().get(abilityType);
     }
-    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, long duration, String usedMessage){
+    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, long duration, String usedMessage, boolean enchanted){
         this.abilityType = abilityType;
         this.material = material;
         this.name = name;
@@ -30,8 +32,9 @@ public class Ability {
         this.cooldown = cooldown;
         this.duration = duration;
         this.usedMessage = usedMessage;
+        this.enchanted = enchanted;
     }
-    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, long duration, String usedMessage, String messageTargets){
+    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, long duration, String usedMessage, boolean enchanted, String messageTargets){
         this.abilityType = abilityType;
         this.material = material;
         this.name = name;
@@ -39,6 +42,27 @@ public class Ability {
         this.cooldown = cooldown;
         this.duration = duration;
         this.usedMessage = usedMessage;
+        this.enchanted = enchanted;
+        this.messageTargets = messageTargets;
+    }
+
+    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, String usedMessage, boolean enchanted){
+        this.abilityType = abilityType;
+        this.material = material;
+        this.name = name;
+        this.lore = lore;
+        this.cooldown = cooldown;
+        this.usedMessage = usedMessage;
+        this.enchanted = enchanted;
+    }
+    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, String usedMessage, boolean enchanted, String messageTargets){
+        this.abilityType = abilityType;
+        this.material = material;
+        this.name = name;
+        this.lore = lore;
+        this.cooldown = cooldown;
+        this.usedMessage = usedMessage;
+        this.enchanted = enchanted;
         this.messageTargets = messageTargets;
     }
 

@@ -71,7 +71,8 @@ public class PluginConfig {
                 config.getStringList("abilities.strength.lore"),
                 config.getLong("abilities.strength.cooldown"),
                 config.getLong("abilities.strength.duration"),
-                config.getString("abilities.strength.used_message")
+                config.getString("abilities.strength.used_message"),
+                config.getBoolean("abilities.strength.enchanted")
                 ));
         abilities.put(AbilityType.RESISTANCE,new Ability(
                 AbilityType.RESISTANCE,
@@ -80,7 +81,28 @@ public class PluginConfig {
                 config.getStringList("abilities.resistance.lore"),
                 config.getLong("abilities.resistance.cooldown"),
                 config.getLong("abilities.resistance.duration"),
-                config.getString("abilities.resistance.used_message")
+                config.getString("abilities.resistance.used_message"),
+                config.getBoolean("abilities.resistance.enchanted")
                 ));
+        abilities.put(AbilityType.REGENERATION,new Ability(
+                AbilityType.REGENERATION,
+                Material.valueOf(config.getString("abilities.regeneration.material_type")),
+                config.getString("abilities.regeneration.name"),
+                config.getStringList("abilities.regeneration.lore"),
+                config.getLong("abilities.regeneration.cooldown"),
+                config.getLong("abilities.regeneration.duration"),
+                config.getString("abilities.regeneration.used_message"),
+                config.getBoolean("abilities.regeneration.enchanted")
+        ));
+        abilities.put(AbilityType.SWITCHER,new Ability(
+                AbilityType.SWITCHER,
+                Material.valueOf(config.getString("abilities.switcher.material_type")),
+                config.getString("abilities.switcher.name"),
+                config.getStringList("abilities.switcher.lore"),
+                config.getLong("abilities.switcher.cooldown"),
+                config.getString("abilities.switcher.used_message"),
+                config.getBoolean("abilities.switcher.enchanted"),
+                config.getString("abilities.switcher.target_message")
+        ));
     }
 }

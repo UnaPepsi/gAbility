@@ -12,7 +12,9 @@ import ga.guimx.gAbility.utils.AbilityType;
 import ga.guimx.gAbility.utils.Chat;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
@@ -24,28 +26,40 @@ public class GiveAbilityCommand {
 
     @Execute
     void giveAbility(@Context CommandSender sender, @Arg Player player, @Arg Ability ability, @Arg Optional<Integer> amount) {
-        int chosenAmount = Math.min(amount.orElse(1),64);
+        int chosenAmount = Math.max(Math.min(amount.orElse(1),99),1);
         ItemStack item = new ItemStack(ability.getMaterial(),chosenAmount);
         item.setLore(ability.getLore().stream().map(Chat::translate).toList());
         ItemMeta itemMeta = item.getItemMeta();
-        itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),ability.getAbilityType().name().toLowerCase()), PersistentDataType.BOOLEAN,true);
+        if (ability.isEnchanted()){
+            itemMeta.addItemFlags(ItemFlag.HIDE_STORED_ENCHANTS);
+            itemMeta.addEnchant(Enchantment.LURE,1,true);
+        }
+        itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
         itemMeta.setDisplayName(Chat.translate(ability.getName()));
+        itemMeta.setMaxStackSize(chosenAmount);
         item.setItemMeta(itemMeta);
+        item.setAmount(chosenAmount);
         player.give(item);
         player.sendMessage(Chat.translate(GAbility.getPrefix()+PluginConfig.getMessages().get("received_given_ability").replace("%amount%",chosenAmount+"").replace("%ability%", ability.getName())));
         sender.sendMessage(Chat.translate(GAbility.getPrefix()+PluginConfig.getMessages().get("given_ability").replace("%player%",player.getName()).replace("%amount%",chosenAmount+"").replace("%ability%", ability.getName())));
     }
     @Execute
     void giveAllAbilities(@Context CommandSender sender, @Arg Player player, @Literal("all") String literal, @Arg Optional<Integer> amount){
-        int chosenAmount = Math.min(amount.orElse(1),64);
+        int chosenAmount = Math.max(Math.min(amount.orElse(1),99),1);
         for (AbilityType abilityType : AbilityType.values()){
             Ability ability = Ability.fromAbilityType(abilityType);
-            ItemStack item = new ItemStack(ability.getMaterial(),chosenAmount);
+            ItemStack item = new ItemStack(ability.getMaterial());
             item.setLore(ability.getLore().stream().map(Chat::translate).toList());
             ItemMeta itemMeta = item.getItemMeta();
-            itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),ability.getAbilityType().name().toLowerCase()), PersistentDataType.BOOLEAN,true);
+            if (ability.isEnchanted()){
+                itemMeta.addItemFlags(ItemFlag.HIDE_STORED_ENCHANTS);
+                itemMeta.addEnchant(Enchantment.LURE,1,true);
+            }
+            itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
             itemMeta.setDisplayName(Chat.translate(ability.getName()));
+            itemMeta.setMaxStackSize(chosenAmount);
             item.setItemMeta(itemMeta);
+            item.setAmount(chosenAmount);
             player.give(item);
             player.sendMessage(Chat.translate(GAbility.getPrefix()+PluginConfig.getMessages().get("received_given_ability").replace("%amount%",chosenAmount+"").replace("%ability%", ability.getName())));
             sender.sendMessage(Chat.translate(GAbility.getPrefix()+PluginConfig.getMessages().get("given_ability").replace("%player%",player.getName()).replace("%amount%",chosenAmount+"").replace("%ability%", ability.getName())));

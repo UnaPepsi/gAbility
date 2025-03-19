@@ -20,7 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class GAbility extends JavaPlugin {
 
     @Getter
-    public static GAbility instance;
+    private static GAbility instance;
     @Getter
     @Setter
     private static String prefix;

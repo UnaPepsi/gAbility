@@ -4,6 +4,7 @@ import dev.rollczi.litecommands.annotations.argument.Arg;
 import dev.rollczi.litecommands.annotations.command.Command;
 import dev.rollczi.litecommands.annotations.context.Context;
 import dev.rollczi.litecommands.annotations.execute.Execute;
+import dev.rollczi.litecommands.annotations.literal.Literal;
 import dev.rollczi.litecommands.annotations.permission.Permission;
 import ga.guimx.gAbility.utils.Ability;
 import ga.guimx.gAbility.utils.PlayerCooldown;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 @Permission("gability.cooldown")
 public class CooldownCommand {
     @Execute(name="set")
-    void setCooldown(@Context CommandSender commandSender, @Arg Player player, @Arg Ability ability, @Arg long cooldown){
+    void setCooldown(@Context CommandSender commandSender, @Arg Ability ability, @Arg Player player, @Arg long cooldown){
         //commandSender.sendMessage("ability: "+ability.getName()+ability.getLore()+ability.getCooldown());
         if (PlayerCooldown.getAbilityCooldowns().containsKey(player.getUniqueId())) {
             PlayerCooldown.getAbilityCooldowns().get(player.getUniqueId()).put(ability, System.currentTimeMillis()+cooldown*1000);
@@ -24,6 +25,11 @@ public class CooldownCommand {
             PlayerCooldown.getAbilityCooldowns().put(player.getUniqueId(),new HashMap<>(){{put(ability,System.currentTimeMillis()+cooldown*1000);}});
         }
         commandSender.sendMessage("done");
+    }
+    @Execute(name="set")
+    void setGlobalCooldown(@Context CommandSender sender, @Literal("global") String literal, @Arg Player player, @Arg long cooldown){
+        PlayerCooldown.getGlobalAbilityCooldowns().put(player.getUniqueId(),System.currentTimeMillis()+cooldown*1000);
+        sender.sendMessage("done");
     }
     //TODO: set global cd and "all" cd
 }
