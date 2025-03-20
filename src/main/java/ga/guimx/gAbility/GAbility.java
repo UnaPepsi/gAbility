@@ -4,10 +4,7 @@ import dev.rollczi.litecommands.LiteCommands;
 import dev.rollczi.litecommands.bukkit.LiteBukkitFactory;
 import ga.guimx.gAbility.commands.*;
 import ga.guimx.gAbility.config.PluginConfig;
-import ga.guimx.gAbility.listeners.AbilityUsageListener;
-import ga.guimx.gAbility.listeners.AntitrapBoneListener;
-import ga.guimx.gAbility.listeners.PlayerLeaveListener;
-import ga.guimx.gAbility.listeners.ProjectileAbilityUsageListener;
+import ga.guimx.gAbility.listeners.*;
 import ga.guimx.gAbility.utils.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,6 +40,9 @@ public final class GAbility extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerLeaveListener(),this);
         getServer().getPluginManager().registerEvents(new ProjectileAbilityUsageListener(),this);
         getServer().getPluginManager().registerEvents(new AntitrapBoneListener(),this);
+        getServer().getPluginManager().registerEvents(new NinjaStarListener(),this);
+        getServer().getPluginManager().registerEvents(new ComboAbilityListener(),this);
+        getServer().getPluginManager().registerEvents(new ConfuserListener(),this);
     }
     void checkForUpdates(){
         try{

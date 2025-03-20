@@ -20,4 +20,11 @@ public class PlayerInfo {
     private static List<UUID> playersShrunk = new ArrayList<>();
     @Getter
     private static List<UUID> playersWithAntitrapBone = new ArrayList<>();
+    @Getter
+    private static HashMap<UUID,LastPlayerHit> lastPlayersHit = new HashMap<>(); //uuid is victim
+    @Getter
+    private static HashMap<UUID,Integer> comboHitCounter = new HashMap<>(); //attacker:hits
+    @Getter
+    private static List<UUID> playersWithConfuser = new ArrayList<>();
+
 }

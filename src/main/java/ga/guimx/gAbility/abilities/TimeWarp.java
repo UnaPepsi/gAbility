@@ -19,7 +19,7 @@ public class TimeWarp extends BaseAbility{
     public boolean checks(Player player){
         if (!super.checks(player)) return false;
         if (!PlayerInfo.getLastThrownEnderPearl().containsKey(player.getUniqueId()) ||
-            System.currentTimeMillis() - PlayerInfo.getLastThrownEnderPearl().get(player.getUniqueId()).getWhen() > 20*1000
+            System.currentTimeMillis() - PlayerInfo.getLastThrownEnderPearl().get(player.getUniqueId()).getWhen() > getAbility().getDuration()*1000
         ){
             player.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getErrorMessage()));
             return false;

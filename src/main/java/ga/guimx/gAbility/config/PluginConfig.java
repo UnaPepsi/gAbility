@@ -157,5 +157,42 @@ public class PluginConfig {
                 .errorMessage(config.getString("abilities.antitrap_bone.error_message"))
                 .messageTargets(config.getString("abilities.antitrap_bone.target_message"))
                 .build());
+        abilities.put(AbilityType.NINJA_STAR,new Ability.Builder(
+                AbilityType.NINJA_STAR,
+                Material.valueOf(config.getString("abilities.ninja_star.material_type")),
+                config.getString("abilities.ninja_star.name"),
+                config.getStringList("abilities.ninja_star.lore"),
+                config.getLong("abilities.ninja_star.cooldown"),
+                config.getBoolean("abilities.ninja_star.enchanted"),
+                config.getString("abilities.ninja_star.used_message"))
+                .duration(config.getLong("abilities.ninja_star.duration"))
+                .errorMessage(config.getString("abilities.ninja_star.error_message"))
+                .messageTargets(config.getString("abilities.ninja_star.target_message"))
+                .build()
+        );
+        abilities.put(AbilityType.COMBO,new Ability.Builder(
+                AbilityType.COMBO,
+                Material.valueOf(config.getString("abilities.combo.material_type")),
+                config.getString("abilities.combo.name"),
+                config.getStringList("abilities.combo.lore"),
+                config.getLong("abilities.combo.cooldown"),
+                config.getBoolean("abilities.combo.enchanted"),
+                config.getString("abilities.combo.used_message"))
+                .duration(config.getLong("abilities.combo.duration"))
+                .build()
+        );
+        abilities.put(AbilityType.CONFUSER,new Ability.Builder(
+                AbilityType.CONFUSER,
+                Material.valueOf(config.getString("abilities.confuser.material_type")),
+                config.getString("abilities.confuser.name"),
+                config.getStringList("abilities.confuser.lore"),
+                config.getLong("abilities.confuser.cooldown"),
+                config.getBoolean("abilities.confuser.enchanted"),
+                config.getString("abilities.confuser.used_message"))
+                .duration(config.getLong("abilities.confuser.duration"))
+                .errorMessage(config.getString("abilities.confuser.error_message"))
+                .messageTargets(config.getString("abilities.confuser.target_message"))
+                .build()
+        );
     }
 }

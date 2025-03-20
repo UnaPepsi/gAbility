@@ -104,5 +104,48 @@ abilities:
     duration: 15
     used_message: "&aYou have hit %player% with an &6Anti-trap Bone&a, they won't be able to interact with blocks for 15 seconds"
     error_message: "&c%player% is currently under the effect of another &6Anti-trap Bone"
-    target_message: "&6%player% &chas hit you with an &6Anti-trap Bone&c, you're currently unable to interact with blocks"
+    target_message: "&cYou have been hit with an &6Anti-trap Bone&c, you're currently unable to interact with blocks"
+    enchanted: true
+  ninja_star:
+    material_type: NETHER_STAR
+    name: "&bNinja Star"
+    lore:
+      - "&7Teleport to the last player that hit you in the last 15 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 300
+    duration: 15 #amount of seconds the plugin will register the last hit as valid
+    used_message: "&aYou have used a &bNinja Star&a, you'll be teleported to &6%player% &ashortly"
+    error_message: "&cYou haven't been hit in the last 15 seconds"
+    target_message: "&6%player% &cused a &bNinja Star&c, they will be teleported to you shortly"
+    enchanted: true
+  combo:
+    material_type: PUFFERFISH
+    name: "&cCombo Ability"
+    lore:
+      - "&7When activated, every hit will give you half a second of Strength II"
+      - "&7after 10 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 180
+    duration: 10
+    used_message: "&aYou have used a &cCombo Ability&a, every hit will get you half a second of Strength II for 10 seconds"
+    enchanted: true
+  confuser:
+    material_type: APPLE
+    name: "&cConfuser"
+    lore:
+      - "&7Hit a player 3 times to confuse them for 15 seconds,"
+      - "&7on this state every block that they to place will"
+      - "&7spawn a pig that will damage them instead"
+      - "&7There's also a chance of a math question being shown to them"
+      - "&7when activated, they won't be able to move until the question"
+      - "&7gets solved"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 300
+    duration: 15
+    used_message: "&aYou have used a &cConfuser &aon %player%!"
+    error_message: "&c%player% is currently under the effect of another &cConfuser"
+    target_message: "&cYou have been hit with a Confuser!"
     enchanted: true

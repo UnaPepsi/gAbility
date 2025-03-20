@@ -40,7 +40,7 @@ public class ProjectileAbilityUsageListener implements Listener {
         //},5);
 
         else if (projectile instanceof EnderPearl){
-            PlayerInfo.getLastThrownEnderPearl().put(player.getUniqueId(),new ThrownEnderPearl(player,player.getLocation().clone(),System.currentTimeMillis()));
+            PlayerInfo.getLastThrownEnderPearl().put(player.getUniqueId(),new ThrownEnderPearl(player.getLocation().clone(),System.currentTimeMillis()));
         }
     }
     @EventHandler

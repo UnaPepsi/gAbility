@@ -11,7 +11,10 @@ public enum AbilityType {
     SHRINKER("shrinker"),
     TIME_WARP("time_warp"),
     REACH("reach"),
-    ANTITRAP_BONE("antitrap_bone");
+    ANTITRAP_BONE("antitrap_bone"),
+    NINJA_STAR("ninja_star"),
+    COMBO("combo"),
+    CONFUSER("confuser");
     private final String value;
     AbilityType(String value){
         this.value = value;

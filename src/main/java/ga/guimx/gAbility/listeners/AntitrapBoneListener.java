@@ -58,30 +58,12 @@ public class AntitrapBoneListener implements Listener {
             playerCurrentTarget.remove(attacker.getUniqueId());
         }
     }
-
-    @EventHandler
-    void onBlockPlace(BlockPlaceEvent event) {
-        Player player = event.getPlayer();
-        if (PlayerInfo.getPlayersWithAntitrapBone().contains(player.getUniqueId())){
-            player.sendMessage(Chat.translate(GAbility.getPrefix() + Ability.fromAbilityType(AbilityType.ANTITRAP_BONE).getMessageTargets()
-                    .replace("%player%",player.getName())));
-        }
-    }
-    @EventHandler
-    void onBlockBreak(BlockBreakEvent event) {
-        Player player = event.getPlayer();
-        if (PlayerInfo.getPlayersWithAntitrapBone().contains(player.getUniqueId())){
-            player.sendMessage(Chat.translate(GAbility.getPrefix() + Ability.fromAbilityType(AbilityType.ANTITRAP_BONE).getMessageTargets()
-                    .replace("%player%",player.getName())));
-        }
-    }
     @EventHandler
     void onBlockInteract(PlayerInteractEvent event){
         Player player = event.getPlayer();
         if (event.getClickedBlock() != null && PlayerInfo.getPlayersWithAntitrapBone().contains(player.getUniqueId())){
             event.setUseInteractedBlock(Event.Result.DENY);
-            player.sendMessage(Chat.translate(GAbility.getPrefix() + Ability.fromAbilityType(AbilityType.ANTITRAP_BONE).getMessageTargets()
-                    .replace("%player%",player.getName())));
+            player.sendMessage(Chat.translate(GAbility.getPrefix() + Ability.fromAbilityType(AbilityType.ANTITRAP_BONE).getMessageTargets()));
         }
     }
 }

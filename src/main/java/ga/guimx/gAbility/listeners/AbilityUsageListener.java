@@ -34,6 +34,8 @@ public class AbilityUsageListener implements Listener {
                 case "shrinker" -> new Shrinker().handle(player, item);
                 case "time_warp" -> new TimeWarp().handle(player, item);
                 case "reach" -> new Reach().handle(player, item);
+                case "ninja_star" -> new NinjaStar().handle(player, item);
+                case "combo" -> new Combo().handle(player, item);
             }
         }else if (event.getAction().isLeftClick()){
             switch (itemType) {
@@ -44,6 +46,10 @@ public class AbilityUsageListener implements Listener {
                 case "shrinker" -> new Shrinker().checks(player);
                 case "time_warp" -> new TimeWarp().checks(player);
                 case "reach" -> new Reach().checks(player);
+                case "antitrap_bone" -> new AntitrapBone().checks(player);
+                case "ninja_star" -> new NinjaStar().checks(player);
+                case "combo" -> new Combo().checks(player);
+                case "confuser" -> new Confuser().checks(player);
             }
         }
     }

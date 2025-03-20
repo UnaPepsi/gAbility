@@ -8,12 +8,10 @@ import ga.guimx.gAbility.utils.PlayerInfo;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
-public class AntitrapBone extends BaseAbility{
+public class Confuser extends BaseAbility{
     @Override
-    protected Ability getAbility(){return Ability.fromAbilityType(AbilityType.ANTITRAP_BONE);}
+    protected Ability getAbility(){return Ability.fromAbilityType(AbilityType.CONFUSER);}
     @Override
     protected void abilityLogic(Player player, ItemStack item, Object... args) {
         Player victim = (Player) args[0];
@@ -21,9 +19,9 @@ public class AntitrapBone extends BaseAbility{
                 .replace("%player%",victim.getName())));
         victim.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getMessageTargets()
                 .replace("%player%",player.getName())));
-        PlayerInfo.getPlayersWithAntitrapBone().add(victim.getUniqueId());
+        PlayerInfo.getPlayersWithConfuser().add(victim.getUniqueId());
         Bukkit.getScheduler().runTaskLater(GAbility.getInstance(),
-                () -> PlayerInfo.getPlayersWithAntitrapBone().remove(victim.getUniqueId()),
+                () -> PlayerInfo.getPlayersWithConfuser().remove(victim.getUniqueId()),
                 getAbility().getDuration()*20);
         item.setAmount(item.getAmount()-1);
     }

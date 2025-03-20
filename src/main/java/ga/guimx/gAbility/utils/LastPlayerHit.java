@@ -4,13 +4,13 @@ import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-public class ThrownEnderPearl {
+public class LastPlayerHit {
     @Getter
-    private Location location;
+    private Player attacker;
     @Getter
     private Long when;
-    public ThrownEnderPearl(Location location, long when){
-        this.location = location;
+    public LastPlayerHit(Player attacker, long when){
+        this.attacker = attacker;
         this.when = when;
     }
 }
