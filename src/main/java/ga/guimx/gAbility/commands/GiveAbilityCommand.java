@@ -5,6 +5,7 @@ import dev.rollczi.litecommands.annotations.command.Command;
 import dev.rollczi.litecommands.annotations.context.Context;
 import dev.rollczi.litecommands.annotations.execute.Execute;
 import dev.rollczi.litecommands.annotations.literal.Literal;
+import dev.rollczi.litecommands.annotations.permission.Permission;
 import ga.guimx.gAbility.GAbility;
 import ga.guimx.gAbility.config.PluginConfig;
 import ga.guimx.gAbility.utils.Ability;
@@ -22,6 +23,7 @@ import org.bukkit.persistence.PersistentDataType;
 import java.util.Optional;
 
 @Command(name = "gability give",aliases = {"ability give"})
+@Permission("gability.give")
 public class GiveAbilityCommand {
 
     @Execute
@@ -29,11 +31,11 @@ public class GiveAbilityCommand {
         int chosenAmount = Math.max(Math.min(amount.orElse(1),99),1);
         ItemStack item = new ItemStack(ability.getMaterial(),chosenAmount);
         item.setLore(ability.getLore().stream().map(Chat::translate).toList());
-        ItemMeta itemMeta = item.getItemMeta();
         if (ability.isEnchanted()){
-            itemMeta.addItemFlags(ItemFlag.HIDE_STORED_ENCHANTS);
-            itemMeta.addEnchant(Enchantment.LURE,1,true);
+            item.addUnsafeEnchantment(Enchantment.LURE,1);
         }
+        ItemMeta itemMeta = item.getItemMeta();
+        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
         itemMeta.setDisplayName(Chat.translate(ability.getName()));
         itemMeta.setMaxStackSize(chosenAmount);
@@ -50,11 +52,11 @@ public class GiveAbilityCommand {
             Ability ability = Ability.fromAbilityType(abilityType);
             ItemStack item = new ItemStack(ability.getMaterial());
             item.setLore(ability.getLore().stream().map(Chat::translate).toList());
-            ItemMeta itemMeta = item.getItemMeta();
             if (ability.isEnchanted()){
-                itemMeta.addItemFlags(ItemFlag.HIDE_STORED_ENCHANTS);
-                itemMeta.addEnchant(Enchantment.LURE,1,true);
+                item.addUnsafeEnchantment(Enchantment.LURE,1);
             }
+            ItemMeta itemMeta = item.getItemMeta();
+            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
             itemMeta.setDisplayName(Chat.translate(ability.getName()));
             itemMeta.setMaxStackSize(chosenAmount);

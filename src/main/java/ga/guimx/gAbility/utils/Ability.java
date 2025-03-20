@@ -12,58 +12,73 @@ import java.util.Objects;
 
 @Getter
 public class Ability {
-    private AbilityType abilityType;
-    private Material material;
-    private String name;
-    private List<String> lore;
-    private long cooldown;
-    private long duration;
-    private String usedMessage;
-    private String messageTargets;
-    private boolean enchanted;
+    private final AbilityType abilityType;
+    private final Material material;
+    private final String name;
+    private final List<String> lore;
+    private final Long cooldown;
+    private final Long duration;
+    private final String usedMessage;
+    private final String messageTargets;
+    private final String errorMessage;
+    private final boolean enchanted;
     public static Ability fromAbilityType(AbilityType abilityType){
         return PluginConfig.getAbilities().get(abilityType);
     }
-    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, long duration, String usedMessage, boolean enchanted){
-        this.abilityType = abilityType;
-        this.material = material;
-        this.name = name;
-        this.lore = lore;
-        this.cooldown = cooldown;
-        this.duration = duration;
-        this.usedMessage = usedMessage;
-        this.enchanted = enchanted;
-    }
-    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, long duration, String usedMessage, boolean enchanted, String messageTargets){
-        this.abilityType = abilityType;
-        this.material = material;
-        this.name = name;
-        this.lore = lore;
-        this.cooldown = cooldown;
-        this.duration = duration;
-        this.usedMessage = usedMessage;
-        this.enchanted = enchanted;
-        this.messageTargets = messageTargets;
+    private Ability(Builder builder) {
+        this.abilityType = builder.abilityType;
+        this.material = builder.material;
+        this.name = builder.name;
+        this.lore = builder.lore;
+        this.cooldown = builder.cooldown;
+        this.duration = builder.duration;
+        this.usedMessage = builder.usedMessage;
+        this.errorMessage = builder.errorMessage;
+        this.enchanted = builder.enchanted;
+        this.messageTargets = builder.messageTargets;
     }
 
-    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, String usedMessage, boolean enchanted){
-        this.abilityType = abilityType;
-        this.material = material;
-        this.name = name;
-        this.lore = lore;
-        this.cooldown = cooldown;
-        this.usedMessage = usedMessage;
-        this.enchanted = enchanted;
-    }
-    public Ability(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, String usedMessage, boolean enchanted, String messageTargets){
-        this.abilityType = abilityType;
-        this.material = material;
-        this.name = name;
-        this.lore = lore;
-        this.cooldown = cooldown;
-        this.usedMessage = usedMessage;
-        this.enchanted = enchanted;
-        this.messageTargets = messageTargets;
+    public static class Builder {
+        private final AbilityType abilityType;
+        private final Material material;
+        private final String name;
+        private final List<String> lore;
+        private final long cooldown;
+        private final boolean enchanted;
+        private final String usedMessage;
+
+        private Long duration;
+        private String errorMessage = null;
+        private String messageTargets = null;
+
+        public Builder(AbilityType abilityType, Material material, String name, List<String> lore, long cooldown, boolean enchanted, String usedMessage) {
+            this.abilityType = abilityType;
+            this.material = material;
+            this.name = name;
+            this.lore = lore;
+            this.cooldown = cooldown;
+            this.enchanted = enchanted;
+            this.usedMessage = usedMessage;
+        }
+
+        public Builder duration(long duration) {
+            this.duration = duration;
+            return this;
+        }
+
+        public Builder errorMessage(String errorMessage) {
+            this.errorMessage = errorMessage;
+            return this;
+        }
+
+        public Builder messageTargets(String messageTargets) {
+            this.messageTargets = messageTargets;
+            return this;
+        }
+
+        public Ability build() {
+            return new Ability(this);
+        }
     }
 
     @Override

@@ -7,7 +7,11 @@ public enum AbilityType {
     STRENGTH("strength"),
     RESISTANCE("resistance"),
     REGENERATION("regeneration"),
-    SWITCHER("switcher");
+    SWITCHER("switcher"),
+    SHRINKER("shrinker"),
+    TIME_WARP("time_warp"),
+    REACH("reach"),
+    ANTITRAP_BONE("antitrap_bone");
     private final String value;
     AbilityType(String value){
         this.value = value;

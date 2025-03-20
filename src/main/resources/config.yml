@@ -3,6 +3,7 @@ messages:
   plugin_enabled: "&ahas been enabled :D!"
   plugin_disabled: "&chas been disabled, bye!"
   plugin_reloaded: "&ahas been reloaded!"
+  new_plugin_version_available: "&aThere's a new version available :D! (%current_version% -> %new_version%)"
   no_permissions: "&cYou don't have permissions for this"
   received_given_ability: "&aYou have received x%amount% %ability%"
   given_ability: "&a%player% has received x%amount% %ability%"
@@ -16,6 +17,8 @@ abilities:
     name: "&6Strength II"
     lore:
       - "&7Get Strength II for 5 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
     cooldown: 90
     duration: 5 #seconds
     used_message: "&aYou have received &6Strength II &afor 5 seconds!"
@@ -25,6 +28,8 @@ abilities:
     name: "&fResistance III"
     lore:
       - "&7Get Resistance III for 10 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
     cooldown: 90
     duration: 10
     used_message: "&aYou have received &fResistance III &afor 10 seconds!"
@@ -34,6 +39,8 @@ abilities:
     name: "&dRegeneration III"
     lore:
       - "&7Get Regeneration III for 5 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
     cooldown: 90
     duration: 5
     used_message: "&aYou have received &fRegeneration III &afor 5 seconds!"
@@ -43,7 +50,59 @@ abilities:
     name: "&dSwitcher ball"
     lore:
       - "&7Switch places to whoever is hit from this projectile"
+      - ""
+      - "&dstore.mymcserver.com"
     cooldown: 30
     used_message: "&aYou have switched places with &e%target%&e!"
     target_message: "&cYou have switched places with &e%player%"
+    enchanted: true
+  shrinker:
+    material_type: BROWN_MUSHROOM
+    name: "&cShrinker"
+    lore:
+      - "&7Reduces your size to half for 7 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 120
+    duration: 7
+    used_message: "&aYou have been shrunk to half your size for 7 seconds!"
+    enchanted: true
+  time_warp:
+    material_type: FEATHER
+    name: "&aTime Warp"
+    lore:
+      - "&7Teleport to your last thrown ender pearl in the past 20 seconds!"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 120
+    duration: 20 #here the duration means the max amount of seconds the plugin will register the last ender pearl for
+    used_message: "&aYou have used a time warp and will be teleported shortly..."
+    error_message: "&cYou haven't thrown an ender pearl in the last 20 seconds..."
+    enchanted: true
+  reach:
+    material_type: LEAD
+    name: "&eReach"
+    lore:
+      - "&7Doubles your reach distance for 10 seconds!" #this also doubles reach for interacting with blocks
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 300
+    duration: 10
+    used_message: "&aYour reach has doubled for the next 10 seconds!"
+    #this is useful if you want to stop false staff bans or false reports
+    #if you want to turn this off, simply make it an empty string
+    target_message: "&6%player% &chas used a &eReach Ability&c. They are able to hit further from normal for a few seconds"
+    enchanted: true
+  antitrap_bone:
+    material_type: BONE
+    name: "&6Anti-trap Bone"
+    lore:
+      - "&7Hit a player 3 times to prevent them interacting with blocks for 15 seconds!"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 120
+    duration: 15
+    used_message: "&aYou have hit %player% with an &6Anti-trap Bone&a, they won't be able to interact with blocks for 15 seconds"
+    error_message: "&c%player% is currently under the effect of another &6Anti-trap Bone"
+    target_message: "&6%player% &chas hit you with an &6Anti-trap Bone&c, you're currently unable to interact with blocks"
     enchanted: true
