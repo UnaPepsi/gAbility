@@ -53,7 +53,8 @@ public final class GAbility extends JavaPlugin {
             if (!newPossibleVersion.equals(getPluginMeta().getVersion())){
                 Bukkit.getConsoleSender().sendMessage(Chat.translate(prefix+PluginConfig.getMessages().get("new_plugin_version_available")
                         .replace("%current_version%",getPluginMeta().getVersion())
-                        .replace("%new_version%",newPossibleVersion)));
+                        .replace("%new_version%",newPossibleVersion)
+                        .replace("%repository%","https://github.com/UnaPepsi/gAbility/releases")));
             }
         }catch (IOException e) {
             GAbility.getInstance().getLogger().warning("gAbility couldn't get the latest version of the plugin");

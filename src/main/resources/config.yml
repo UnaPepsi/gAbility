@@ -3,7 +3,7 @@ messages:
   plugin_enabled: "&ahas been enabled :D!"
   plugin_disabled: "&chas been disabled, bye!"
   plugin_reloaded: "&ahas been reloaded!"
-  new_plugin_version_available: "&aThere's a new version available :D! (%current_version% -> %new_version%)"
+  new_plugin_version_available: "&aThere's a new version available :D! (%current_version% -> %new_version%) %repository%"
   no_permissions: "&cYou need (&7%missing_permissions%&c) permissions to do this"
   received_given_ability: "&aYou have received x%amount% %ability%"
   given_ability: "&a%player% has received x%amount% %ability%"
