@@ -35,7 +35,8 @@ public class GiveAbilityCommand {
             item.addUnsafeEnchantment(Enchantment.LURE,1);
         }
         ItemMeta itemMeta = item.getItemMeta();
-        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        itemMeta.setUnbreakable(true);
+        itemMeta.addItemFlags(ItemFlag.values());
         itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
         itemMeta.setDisplayName(Chat.translate(ability.getName()));
         itemMeta.setMaxStackSize(chosenAmount);
@@ -56,7 +57,8 @@ public class GiveAbilityCommand {
                 item.addUnsafeEnchantment(Enchantment.LURE,1);
             }
             ItemMeta itemMeta = item.getItemMeta();
-            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            itemMeta.setUnbreakable(true);
+            itemMeta.addItemFlags(ItemFlag.values());
             itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
             itemMeta.setDisplayName(Chat.translate(ability.getName()));
             itemMeta.setMaxStackSize(chosenAmount);

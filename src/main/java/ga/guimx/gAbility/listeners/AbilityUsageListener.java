@@ -36,6 +36,8 @@ public class AbilityUsageListener implements Listener {
                 case "reach" -> new Reach().handle(player, item);
                 case "ninja_star" -> new NinjaStar().handle(player, item);
                 case "combo" -> new Combo().handle(player, item);
+                case "focus_mode" -> new FocusMode().handle(player, item);
+                case "zeus_hammer" -> new ZeusHammer().handle(player, item);
             }
         }else if (event.getAction().isLeftClick()){
             switch (itemType) {
@@ -50,6 +52,8 @@ public class AbilityUsageListener implements Listener {
                 case "ninja_star" -> new NinjaStar().checks(player);
                 case "combo" -> new Combo().checks(player);
                 case "confuser" -> new Confuser().checks(player);
+                case "focus_mode" -> new FocusMode().checks(player);
+                case "zeus_hammer" -> new ZeusHammer().checks(player);
             }
         }
     }

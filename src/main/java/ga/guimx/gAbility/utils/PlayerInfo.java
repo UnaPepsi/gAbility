@@ -7,24 +7,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class PlayerInfo {
+public  class PlayerInfo {
     @Getter
-    private static HashMap<UUID,HashMap<Ability,Long>> abilityCooldowns = new HashMap<>();
+    private static final HashMap<UUID,HashMap<Ability,Long>> abilityCooldowns = new HashMap<>();
     @Getter
-    private static HashMap<UUID,Long> globalAbilityCooldowns = new HashMap<>();
+    private static final HashMap<UUID,Long> globalAbilityCooldowns = new HashMap<>();
     @Getter
-    private static HashMap<UUID,ThrownEnderPearl> lastThrownEnderPearl = new HashMap<>();
+    private static final HashMap<UUID,ThrownEnderPearl> lastThrownEnderPearl = new HashMap<>();
     @Getter
-    private static List<UUID> playersWithReach = new ArrayList<>();
+    private static final List<UUID> playersWithReach = new ArrayList<>();
     @Getter
-    private static List<UUID> playersShrunk = new ArrayList<>();
+    private static final List<UUID> playersShrunk = new ArrayList<>();
     @Getter
-    private static List<UUID> playersWithAntitrapBone = new ArrayList<>();
+    private static final List<UUID> playersWithAntitrapBone = new ArrayList<>();
     @Getter
-    private static HashMap<UUID,LastPlayerHit> lastPlayersHit = new HashMap<>(); //uuid is victim
+    private static final HashMap<UUID,LastPlayerHit> lastPlayersHit = new HashMap<>(); //uuid is victim
     @Getter
-    private static HashMap<UUID,Integer> comboHitCounter = new HashMap<>(); //attacker:hits
+    private static final HashMap<UUID,Integer> comboHitCounter = new HashMap<>(); //attacker:hits
     @Getter
-    private static List<UUID> playersWithConfuser = new ArrayList<>();
-
+    private static final List<UUID> playersWithConfuser = new ArrayList<>();
+    @Getter
+    private static final HashMap<UUID,LastPlayerHit> lastPlayersAttacked = new HashMap<>(); //uuid is attacker, this is basically the opposite of lastPlayersHit
+    @Getter
+    private static final HashMap<UUID,UUID> playersWithFocusMode = new HashMap<>(); //attacker:victim
+    @Getter
+    private static final List<UUID> playersWithZeusHammer = new ArrayList<>();
 }

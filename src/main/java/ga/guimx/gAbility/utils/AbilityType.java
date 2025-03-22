@@ -14,7 +14,9 @@ public enum AbilityType {
     ANTITRAP_BONE("antitrap_bone"),
     NINJA_STAR("ninja_star"),
     COMBO("combo"),
-    CONFUSER("confuser");
+    CONFUSER("confuser"),
+    FOCUS_MODE("focus_mode"),
+    ZEUS_HAMMER("zeus_hammer");
     private final String value;
     AbilityType(String value){
         this.value = value;

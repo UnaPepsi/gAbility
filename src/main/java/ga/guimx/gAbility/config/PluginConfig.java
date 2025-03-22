@@ -194,5 +194,29 @@ public class PluginConfig {
                 .messageTargets(config.getString("abilities.confuser.target_message"))
                 .build()
         );
+        abilities.put(AbilityType.FOCUS_MODE,new Ability.Builder(
+                AbilityType.FOCUS_MODE,
+                Material.valueOf(config.getString("abilities.focus_mode.material_type")),
+                config.getString("abilities.focus_mode.name"),
+                config.getStringList("abilities.focus_mode.lore"),
+                config.getLong("abilities.focus_mode.cooldown"),
+                config.getBoolean("abilities.focus_mode.enchanted"),
+                config.getString("abilities.focus_mode.used_message"))
+                .duration(config.getLong("abilities.focus_mode.duration"))
+                .errorMessage(config.getString("abilities.focus_mode.error_message"))
+                .messageTargets(config.getString("abilities.focus_mode.target_message"))
+                .build()
+        );
+        abilities.put(AbilityType.ZEUS_HAMMER,new Ability.Builder(
+                AbilityType.ZEUS_HAMMER,
+                Material.valueOf(config.getString("abilities.zeus_hammer.material_type")),
+                config.getString("abilities.zeus_hammer.name"),
+                config.getStringList("abilities.zeus_hammer.lore"),
+                config.getLong("abilities.zeus_hammer.cooldown"),
+                config.getBoolean("abilities.zeus_hammer.enchanted"),
+                config.getString("abilities.zeus_hammer.used_message"))
+                .duration(config.getLong("abilities.zeus_hammer.duration"))
+                .build()
+        );
     }
 }

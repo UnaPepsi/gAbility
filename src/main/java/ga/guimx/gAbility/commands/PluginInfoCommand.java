@@ -1,22 +1,17 @@
 package ga.guimx.gAbility.commands;
 
 import dev.rollczi.litecommands.annotations.command.Command;
-import dev.rollczi.litecommands.annotations.command.RootCommand;
 import dev.rollczi.litecommands.annotations.context.Context;
 import dev.rollczi.litecommands.annotations.execute.Execute;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
+import ga.guimx.gAbility.GAbility;
+import ga.guimx.gAbility.utils.Chat;
+import org.bukkit.command.CommandSender;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@Command(name="ability asd")
+@Command(name="gability info",aliases = {"ability info"})
 public class PluginInfoCommand {
 
     @Execute
-    void executePluginInfo(@Context Player player) {
+    void executePluginInfo(@Context CommandSender sender) {
+        sender.sendMessage(Chat.translate("&6gAbility\n&f- Version %s\n&f- Made by guimx :)", GAbility.getInstance().getPluginMeta().getVersion()));
     }
 }

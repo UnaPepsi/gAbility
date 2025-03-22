@@ -4,7 +4,7 @@ messages:
   plugin_disabled: "&chas been disabled, bye!"
   plugin_reloaded: "&ahas been reloaded!"
   new_plugin_version_available: "&aThere's a new version available :D! (%current_version% -> %new_version%)"
-  no_permissions: "&cYou don't have permissions for this"
+  no_permissions: "&cYou need (&7%missing_permissions%&c) permissions to do this"
   received_given_ability: "&aYou have received x%amount% %ability%"
   given_ability: "&a%player% has received x%amount% %ability%"
   global_item_cooldown: "&cYou're global item cooldown for %minutes%:%seconds%"
@@ -148,4 +148,29 @@ abilities:
     used_message: "&aYou have used a &cConfuser &aon %player%!"
     error_message: "&c%player% is currently under the effect of another &cConfuser"
     target_message: "&cYou have been hit with a Confuser!"
+    enchanted: true
+  focus_mode:
+    material_type: GOLD_NUGGET
+    name: "&eFocus Mode"
+    lore:
+      - "&7Gain an 25%% damage increase against the last player you hit in the last 15 seconds for 10 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 60
+    duration: 10
+    used_message: "&aYou have used a &eFocus Mode &aagainst %player%!"
+    error_message: "&cYou haven't hit anyone in the last 15 seconds"
+    target_message: "&6%player% &cused a &eFocus Mode &cagainst you, you will receive 25%% more damage from them"
+    enchanted: true
+  zeus_hammer:
+    material_type: GOLDEN_AXE
+    name: "&6Zeus Hammer"
+    lore:
+      - "&7Right click to activate a timer for 12 seconds in which every hit has a 25%%"
+      - "&7chance of striking your opponent with a lightning"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 120
+    duration: 10
+    used_message: "&aYou have used a &6Zeus Hammer&a, every hit has a chance of striking your opponent"
     enchanted: true
