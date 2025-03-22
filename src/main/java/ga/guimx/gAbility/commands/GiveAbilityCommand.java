@@ -23,10 +23,10 @@ import org.bukkit.persistence.PersistentDataType;
 import java.util.Optional;
 
 @Command(name = "gability give",aliases = {"ability give"})
-@Permission("gability.give")
 public class GiveAbilityCommand {
 
     @Execute
+    @Permission("gability.give")
     void giveAbility(@Context CommandSender sender, @Arg Player player, @Arg Ability ability, @Arg Optional<Integer> amount) {
         int chosenAmount = Math.max(Math.min(amount.orElse(1),99),1);
         ItemStack item = new ItemStack(ability.getMaterial(),chosenAmount);
@@ -47,6 +47,7 @@ public class GiveAbilityCommand {
         sender.sendMessage(Chat.translate(GAbility.getPrefix()+PluginConfig.getMessages().get("given_ability").replace("%player%",player.getName()).replace("%amount%",chosenAmount+"").replace("%ability%", ability.getName())));
     }
     @Execute
+    @Permission("gability.give")
     void giveAllAbilities(@Context CommandSender sender, @Arg Player player, @Literal("all") String literal, @Arg Optional<Integer> amount){
         int chosenAmount = Math.max(Math.min(amount.orElse(1),99),1);
         for (AbilityType abilityType : AbilityType.values()){

@@ -10,10 +10,10 @@ import ga.guimx.gAbility.utils.Chat;
 import org.bukkit.command.CommandSender;
 
 @Command(name = "gability reload",aliases = {"ability reload"})
-@Permission("gability.admin")
 public class ReloadConfigCommand {
 
     @Execute
+    @Permission("gability.admin")
     void executeReloadConfig(@Context CommandSender sender) {
         PluginConfig.getInstance().reload();
         sender.sendMessage(Chat.translate(GAbility.getPrefix()+PluginConfig.getMessages().get("plugin_reloaded")));

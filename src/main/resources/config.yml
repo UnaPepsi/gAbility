@@ -43,7 +43,7 @@ abilities:
       - "&dstore.mymcserver.com"
     cooldown: 90
     duration: 5
-    used_message: "&aYou have received &fRegeneration III &afor 5 seconds!"
+    used_message: "&aYou have received &dRegeneration III &afor 5 seconds!"
     enchanted: true
   switcher:
     material_type: SNOWBALL
