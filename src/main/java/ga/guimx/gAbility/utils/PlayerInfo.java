@@ -1,6 +1,7 @@
 package ga.guimx.gAbility.utils;
 
 import lombok.Getter;
+import org.bukkit.Location;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,4 +33,6 @@ public  class PlayerInfo {
     private static final HashMap<UUID,UUID> playersWithFocusMode = new HashMap<>(); //attacker:victim
     @Getter
     private static final List<UUID> playersWithZeusHammer = new ArrayList<>();
+    @Getter
+    private static final HashMap<Location,Integer> beaconsPlaced = new HashMap<>();
 }

@@ -218,5 +218,17 @@ public class PluginConfig {
                 .duration(config.getLong("abilities.zeus_hammer.duration"))
                 .build()
         );
+        abilities.put(AbilityType.ANTITRAP_BEACON,new Ability.Builder(
+                AbilityType.ANTITRAP_BEACON,
+                Material.valueOf(config.getString("abilities.antitrap_beacon.material_type")),
+                config.getString("abilities.antitrap_beacon.name"),
+                config.getStringList("abilities.antitrap_beacon.lore"),
+                config.getLong("abilities.antitrap_beacon.cooldown"),
+                config.getBoolean("abilities.antitrap_beacon.enchanted"),
+                config.getString("abilities.antitrap_beacon.used_message"))
+                .duration(config.getLong("abilities.antitrap_beacon.duration"))
+                .messageTargets(config.getString("abilities.antitrap_beacon.target_message"))
+                .build()
+        );
     }
 }

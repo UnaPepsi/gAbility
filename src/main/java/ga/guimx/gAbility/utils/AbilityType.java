@@ -16,7 +16,8 @@ public enum AbilityType {
     COMBO("combo"),
     CONFUSER("confuser"),
     FOCUS_MODE("focus_mode"),
-    ZEUS_HAMMER("zeus_hammer");
+    ZEUS_HAMMER("zeus_hammer"),
+    ANTITRAP_BEACON("antitrap_beacon");
     private final String value;
     AbilityType(String value){
         this.value = value;

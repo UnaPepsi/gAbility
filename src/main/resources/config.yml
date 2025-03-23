@@ -174,3 +174,19 @@ abilities:
     duration: 10
     used_message: "&aYou have used a &6Zeus Hammer&a, every hit has a chance of striking your opponent"
     enchanted: true
+  antitrap_beacon:
+    #this item should be of one that can be placed
+    #and one that cant be moved or broken by pistons
+    #though this plugin will prevent this item from being broken or moved
+    material_type: BEACON
+    name: "&bAnti-trap Beacon"
+    lore:
+      - "&7Prevents any player from placing blocks in a radius of 15 blocks upon placing this beacon"
+      - "&7This beacon can be destroyed by being hit 20 times or after 60 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 300
+    duration: 60 #duration before the beacon automatically breaks
+    used_message: "&aYou have used an &bAnti-trap Beacon&a, no player will be able to build in a radius of 15 blocks"
+    target_message: "&cThere's an &bAnti-trap Beacon &cnearby, hit it 20 times to break it!"
+    enchanted: true
