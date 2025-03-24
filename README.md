@@ -19,7 +19,7 @@ _This plugin was developed under PaperMC's API. So it is recommended that you us
   - Permissions required: `gability.cooldown`
 - `/ability give <player> <ability|all> [amount]`
   - Gives the specified player `amount` of a specific `ability` (or every if `all` is used)
-  - `amount` can't go past 100 or below 1. Defaults to 1
+  - `amount` can't go past 99 or below 1. Defaults to 1
   - Permissions required: `gability.give`
 
 _`/ability test` commands and subcommands shouldn't be run unless you know what you're doing. Permissions required: `gability.admin`_
