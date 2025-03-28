@@ -10,10 +10,12 @@ import ga.guimx.gAbility.utils.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
+import java.util.Random;
 
 public final class GAbility extends JavaPlugin {
 
@@ -22,10 +24,15 @@ public final class GAbility extends JavaPlugin {
     @Getter
     @Setter
     private static String prefix;
+    @Getter
+    private static NamespacedKey key;
+    @Getter
+    private static final Random random = new Random();
     private LiteCommands<CommandSender> liteCommands;
     @Override
     public void onEnable() {
         instance = this;
+        key = new NamespacedKey(instance,"ability");
         PluginConfig.getInstance().load();
         liteCommands = LiteBukkitFactory.builder("gability",this)
                         .commands(new CooldownCommand(),new ReloadConfigCommand(),new GiveAbilityCommand(),new PluginInfoCommand(),new TestCommand())
@@ -50,6 +57,10 @@ public final class GAbility extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new FocusModeListener(),this);
         getServer().getPluginManager().registerEvents(new ZeusHammerListener(),this);
         getServer().getPluginManager().registerEvents(new AntitrapBeaconListener(),this);
+        getServer().getPluginManager().registerEvents(new RiskyModeListener(),this);
+        getServer().getPluginManager().registerEvents(new GuardianAngelListener(),this);
+        getServer().getPluginManager().registerEvents(new PortableBardListener(),this);
+        getServer().getPluginManager().registerEvents(new StarvationFleshListener(),this);
     }
     void checkForUpdates(){
         try{

@@ -11,7 +11,6 @@ import ga.guimx.gAbility.config.PluginConfig;
 import ga.guimx.gAbility.utils.Ability;
 import ga.guimx.gAbility.utils.AbilityType;
 import ga.guimx.gAbility.utils.Chat;
-import org.bukkit.NamespacedKey;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -37,7 +36,7 @@ public class GiveAbilityCommand {
         ItemMeta itemMeta = item.getItemMeta();
         itemMeta.setUnbreakable(true);
         itemMeta.addItemFlags(ItemFlag.values());
-        itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
+        itemMeta.getPersistentDataContainer().set(GAbility.getKey(), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
         itemMeta.setDisplayName(Chat.translate(ability.getName()));
         itemMeta.setMaxStackSize(chosenAmount);
         item.setItemMeta(itemMeta);
@@ -60,7 +59,7 @@ public class GiveAbilityCommand {
             ItemMeta itemMeta = item.getItemMeta();
             itemMeta.setUnbreakable(true);
             itemMeta.addItemFlags(ItemFlag.values());
-            itemMeta.getPersistentDataContainer().set(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
+            itemMeta.getPersistentDataContainer().set(GAbility.getKey(), PersistentDataType.STRING,ability.getAbilityType().name().toLowerCase());
             itemMeta.setDisplayName(Chat.translate(ability.getName()));
             itemMeta.setMaxStackSize(chosenAmount);
             item.setItemMeta(itemMeta);

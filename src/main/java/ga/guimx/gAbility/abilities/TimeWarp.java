@@ -1,14 +1,8 @@
 package ga.guimx.gAbility.abilities;
 
 import ga.guimx.gAbility.GAbility;
-import ga.guimx.gAbility.config.PluginConfig;
-import ga.guimx.gAbility.utils.Ability;
-import ga.guimx.gAbility.utils.AbilityType;
-import ga.guimx.gAbility.utils.Chat;
-import ga.guimx.gAbility.utils.PlayerInfo;
-import org.bukkit.Bukkit;
+import ga.guimx.gAbility.utils.*;
 import org.bukkit.Location;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -31,6 +25,6 @@ public class TimeWarp extends BaseAbility{
         player.sendMessage(Chat.translate(GAbility.getPrefix()+ getAbility().getUsedMessage()));
         item.setAmount(item.getAmount()-1);
         Location location = PlayerInfo.getLastThrownEnderPearl().get(player.getUniqueId()).getLocation().clone();
-        Bukkit.getScheduler().runTaskLater(GAbility.getInstance(), () -> player.teleport(location),3*20);
+        Task.runLater(() -> player.teleport(location),3*20);
     }
 }

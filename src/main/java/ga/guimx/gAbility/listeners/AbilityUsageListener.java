@@ -7,7 +7,6 @@ import ga.guimx.gAbility.utils.AbilityType;
 import ga.guimx.gAbility.utils.Chat;
 import ga.guimx.gAbility.utils.PlayerInfo;
 import io.papermc.paper.persistence.PersistentDataContainerView;
-import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,8 +24,9 @@ public class AbilityUsageListener implements Listener {
         ItemStack item = event.getItem();
         PersistentDataContainerView container = item.getPersistentDataContainer();
         Player player = event.getPlayer();
-        String itemType = container.get(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING);
+        String itemType = container.get(GAbility.getKey(), PersistentDataType.STRING);
         if (itemType == null) return;
+        if (item.getType().toString().endsWith("SPAWN_EGG")) event.setCancelled(true);
         if (event.getAction().isRightClick()) {
             switch (itemType) {
                 case "strength" -> new Strength().handle(player, item);
@@ -39,6 +39,9 @@ public class AbilityUsageListener implements Listener {
                 case "combo" -> new Combo().handle(player, item);
                 case "focus_mode" -> new FocusMode().handle(player, item);
                 case "zeus_hammer" -> new ZeusHammer().handle(player, item);
+                case "risky_mode" -> new RiskyMode().handle(player,item);
+                case "guardian_angel" -> new GuardianAngel().handle(player,item);
+                case "portable_bard" -> new PortableBard().handle(player,item,event.getClickedBlock() != null ? event.getClickedBlock().getLocation().add(0,1,0) : player.getLocation());
             }
         }else if (event.getAction().isLeftClick()){
             switch (itemType) {
@@ -56,6 +59,11 @@ public class AbilityUsageListener implements Listener {
                 case "focus_mode" -> new FocusMode().checks(player);
                 case "zeus_hammer" -> new ZeusHammer().checks(player);
                 case "antitrap_beacon" -> new AntitrapBeacon().checks(player);
+                case "risky_mode" -> new RiskyMode().checks(player);
+                case "guardian_angel" -> new GuardianAngel().checks(player);
+                case "rage_ball" -> new RageBall().checks(player);
+                case "portable_bard" -> new PortableBard().checks(player);
+                case "starvation_flesh" -> new StarvationFlesh().checks(player);
             }
         }
     }
@@ -63,9 +71,8 @@ public class AbilityUsageListener implements Listener {
     @EventHandler
     void blockPlace(BlockPlaceEvent event){
         //to avoid some ability items being placed on the ground
-        NamespacedKey key = new NamespacedKey(GAbility.getInstance(),"ability");
-        if (event.getItemInHand().getPersistentDataContainer().has(key,PersistentDataType.STRING) &&
-            !"antitrap_beacon".equals(event.getItemInHand().getPersistentDataContainer().get(key,PersistentDataType.STRING))) event.setCancelled(true);
+        if (event.getItemInHand().getPersistentDataContainer().has(GAbility.getKey(),PersistentDataType.STRING) &&
+            !"antitrap_beacon".equals(event.getItemInHand().getPersistentDataContainer().get(GAbility.getKey(),PersistentDataType.STRING))) event.setCancelled(true);
     }
 
     //to try and avoid false staff bans or false reports

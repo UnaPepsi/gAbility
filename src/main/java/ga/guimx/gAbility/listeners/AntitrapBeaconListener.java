@@ -9,6 +9,7 @@ import ga.guimx.gAbility.utils.PlayerInfo;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageAbortEvent;
@@ -19,9 +20,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 
 public class AntitrapBeaconListener implements Listener {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGH)
     void onBlockPlace(BlockPlaceEvent event){
-        if ("antitrap_beacon".equals(event.getItemInHand().getPersistentDataContainer().get(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING))) {
+        if ("antitrap_beacon".equals(event.getItemInHand().getPersistentDataContainer().get(GAbility.getKey(), PersistentDataType.STRING))) {
             AntitrapBeacon beacon = new AntitrapBeacon();
             boolean check = beacon.checks(event.getPlayer());
             //I remember making this beacon item on Skript long ago,
@@ -76,7 +77,7 @@ public class AntitrapBeaconListener implements Listener {
     @EventHandler
     void onMovement(PlayerItemHeldEvent event){
         Player player = event.getPlayer();
-        NamespacedKey key = new NamespacedKey(GAbility.getInstance(),"ability");
+        NamespacedKey key = GAbility.getKey();
         ItemStack item = player.getInventory().getItem(event.getNewSlot());
         if(item == null || !"antitrap_beacon".equals(item.getPersistentDataContainer().get(key,PersistentDataType.STRING))){
             return;

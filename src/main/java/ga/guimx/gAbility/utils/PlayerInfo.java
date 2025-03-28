@@ -35,4 +35,8 @@ public  class PlayerInfo {
     private static final List<UUID> playersWithZeusHammer = new ArrayList<>();
     @Getter
     private static final HashMap<Location,Integer> beaconsPlaced = new HashMap<>();
+    @Getter
+    private static final HashMap<UUID,Double> playersWithRiskyMode = new HashMap<>(); //player:damage_boost
+    @Getter
+    private static final List<UUID> playersWithGuardianAngel = new ArrayList<>();
 }

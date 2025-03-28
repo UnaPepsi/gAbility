@@ -2,8 +2,6 @@ package ga.guimx.gAbility.abilities;
 
 import ga.guimx.gAbility.GAbility;
 import ga.guimx.gAbility.utils.*;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -29,6 +27,6 @@ public class NinjaStar extends BaseAbility{
         item.setAmount(item.getAmount()-1);
         playerToTeleport.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getMessageTargets()
                 .replace("%player%",player.getName())));;
-        Bukkit.getScheduler().runTaskLater(GAbility.getInstance(), () -> player.teleport(playerToTeleport),3*20);
+        Task.runLater(() -> player.teleport(playerToTeleport),3*20);
     }
 }

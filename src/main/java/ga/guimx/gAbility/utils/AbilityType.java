@@ -17,7 +17,12 @@ public enum AbilityType {
     CONFUSER("confuser"),
     FOCUS_MODE("focus_mode"),
     ZEUS_HAMMER("zeus_hammer"),
-    ANTITRAP_BEACON("antitrap_beacon");
+    ANTITRAP_BEACON("antitrap_beacon"),
+    RISKY_MODE("risky_mode"),
+    GUARDIAN_ANGEL("guardian_angel"),
+    RAGE_BALL("rage_ball"),
+    PORTABLE_BARD("portable_bard"),
+    STARVATION_FLESH("starvation_flesh");
     private final String value;
     AbilityType(String value){
         this.value = value;

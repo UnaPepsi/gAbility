@@ -1,7 +1,6 @@
 package ga.guimx.gAbility.listeners;
 
 import ga.guimx.gAbility.GAbility;
-import ga.guimx.gAbility.abilities.AntitrapBone;
 import ga.guimx.gAbility.abilities.Confuser;
 import ga.guimx.gAbility.utils.Ability;
 import ga.guimx.gAbility.utils.AbilityType;
@@ -11,16 +10,12 @@ import io.papermc.paper.event.player.AsyncChatEvent;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
@@ -44,7 +39,7 @@ public class ConfuserListener implements Listener {
             return;
         }
         ItemStack item = attacker.getInventory().getItemInMainHand();
-        String itemType = item.getPersistentDataContainer().get(new NamespacedKey(GAbility.getInstance(),"ability"), PersistentDataType.STRING);
+        String itemType = item.getPersistentDataContainer().get(GAbility.getKey(), PersistentDataType.STRING);
         if (itemType == null || !itemType.equals("confuser")) return;
         Confuser confuser = new Confuser();
         if (!confuser.checks(attacker)) return;

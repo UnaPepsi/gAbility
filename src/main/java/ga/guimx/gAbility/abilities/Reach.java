@@ -1,11 +1,7 @@
 package ga.guimx.gAbility.abilities;
 
 import ga.guimx.gAbility.GAbility;
-import ga.guimx.gAbility.utils.Ability;
-import ga.guimx.gAbility.utils.AbilityType;
-import ga.guimx.gAbility.utils.Chat;
-import ga.guimx.gAbility.utils.PlayerInfo;
-import org.bukkit.Bukkit;
+import ga.guimx.gAbility.utils.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -20,7 +16,7 @@ public class Reach extends BaseAbility{
         player.getAttribute(Attribute.ENTITY_INTERACTION_RANGE).setBaseValue(baseEntityValue*2);
         player.getAttribute(Attribute.BLOCK_INTERACTION_RANGE).setBaseValue(baseBlockValue*2);
         PlayerInfo.getPlayersWithReach().add(player.getUniqueId());
-        Bukkit.getScheduler().runTaskLater(GAbility.getInstance(), () -> {
+        Task.runLater( () -> {
             player.getAttribute(Attribute.ENTITY_INTERACTION_RANGE).setBaseValue(baseEntityValue);
             player.getAttribute(Attribute.BLOCK_INTERACTION_RANGE).setBaseValue(baseBlockValue);
             PlayerInfo.getPlayersWithReach().remove(player.getUniqueId());

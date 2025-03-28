@@ -1,15 +1,12 @@
 package ga.guimx.gAbility.abilities;
 
 import ga.guimx.gAbility.GAbility;
-import ga.guimx.gAbility.config.PluginConfig;
 import ga.guimx.gAbility.utils.Ability;
 import ga.guimx.gAbility.utils.AbilityType;
 import ga.guimx.gAbility.utils.Chat;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nullable;
 
@@ -21,8 +18,8 @@ public class Switcher extends BaseAbility{
         abilityLogic(player, item, extraArgs);
     }
     @Override
-    protected void abilityLogic(Player player, @Nullable ItemStack nullItem, Object... unused) {
-        Player targetPlayer = (Player) unused[0];
+    protected void abilityLogic(Player player, @Nullable ItemStack nullItem, Object... extraArgs) {
+        Player targetPlayer = (Player) extraArgs[0];
         Location origialLocation = player.getLocation().clone();
         player.teleport(targetPlayer.getLocation());
         targetPlayer.teleport(origialLocation);

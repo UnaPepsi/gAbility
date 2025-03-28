@@ -53,8 +53,8 @@ abilities:
       - ""
       - "&dstore.mymcserver.com"
     cooldown: 30
-    used_message: "&aYou have switched places with &e%target%&e!"
-    target_message: "&cYou have switched places with &e%player%"
+    used_message: "&aYou have switched places with &e%target%&a!"
+    target_message: "&cYou have switched places with &e%player%&c!"
     enchanted: true
   shrinker:
     material_type: BROWN_MUSHROOM
@@ -76,7 +76,7 @@ abilities:
       - "&dstore.mymcserver.com"
     cooldown: 120
     duration: 20 #here the duration means the max amount of seconds the plugin will register the last ender pearl for
-    used_message: "&aYou have used a time warp and will be teleported shortly..."
+    used_message: "&aYou have used a Time Warp and will be teleported shortly..."
     error_message: "&cYou haven't thrown an ender pearl in the last 20 seconds..."
     enchanted: true
   reach:
@@ -189,4 +189,81 @@ abilities:
     duration: 60 #duration before the beacon automatically breaks
     used_message: "&aYou have used an &bAnti-trap Beacon&a, no player will be able to build in a radius of 15 blocks"
     target_message: "&cThere's an &bAnti-trap Beacon &cnearby, hit it 20 times to break it!"
+    enchanted: true
+  risky_mode:
+    material_type: BRICK
+    name: "&cRisky Mode"
+    lore:
+      - "&7Gives a damage boost depending on your HP"
+      - "&7The lower your HP, the bigger the boost. Capped at 35%%"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 120
+    duration: 10
+    used_message: "&aYou have used a &cRisky Mode &aand have gained a %boost%%% damage boost" #e.g "20.5% damage boost"
+    target_message: "&6%player% &cused a Risky Mode near you. They've got a damage boost for a few seconds"
+    enchanted: true
+  guardian_angel:
+    material_type: CLOCK
+    #when I first made ability items on skript long ago, I had a typo, "angle" instead of "angel"
+    #it was pretty funny and I kept it
+    #you should rename this to "angel" tho
+    #this item prevents the player from dying once for a few seconds
+    name: "&eGuardian Angle"
+    lore:
+      - #change this lol
+      - "&7Right click to have a 30 second timer in which"
+      - "&7the angle of the pythagorean theorem"
+      - "&7hypotenuse of your health will be raised to the power"
+      - "&7of the distance between 0 and 10 hearts"
+      - ""
+      - "&cCooldown: &7sqrt(8100) seconds."
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 90
+    duration: 30
+    used_message: "&aYou have used a &eGuardian Angle&a. For 30 seconds, you can't die!"
+    error_message: "&cYour &eGuardian Angle &chas expired"
+    target_message: "&aYour &eGuardian Angle &ahas saved you from death"
+    enchanted: true
+  rage_ball:
+    material_type: EGG
+    name: "&6Rage Ball"
+    lore:
+      - "&7Get Strength II and Resistance III for 7 seconds"
+      - "&7and give everyone within a 10 block radius of where this projectile lands"
+      - "&7Weakness II and Wither II for 7 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 300
+    duration: 7
+    used_message: "&aYou have used a &6Rage Ball &aand have gained Strength II and Resistance III for 7 seconds"
+    target_message: "&6%player% &chas hit you with a &6Rage Ball&c. You've been debuffed for 7 seconds"
+    enchanted: true
+  portable_bard:
+    material_type: BLAZE_SPAWN_EGG
+    entity_type: SKELETON #this must be of a living entity (cows, skeletons... are valid, minecarts, items... are invalid)
+    name: "&6Portable Bard"
+    lore:
+      - "&7Spawns an Skeleton which will give you passive bard effects when within 20 blocks of you:"
+      - "&7Strength I, Resistance I, Regeneration I and Speed II"
+      - "&7Occasionally, the Skeleton will give one a clickable bard effect for 5 seconds:"
+      - "&7Strength II, Resistance III, Regeneration III or Speed III"
+      - "&7The skeleton can be killed by being hit 20 times or after 60 seconds of being spawned"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 300
+    duration: 60
+    used_message: "&aYou have spawned a &6Portable Bard"
+    enchanted: true
+  starvation_flesh:
+    material_type: ROTTEN_FLESH
+    name: "&2Starvation Flesh"
+    lore:
+      - "&7Hit a player 3 times to set their hunger level to 0"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 120
+    used_message: "&aYou have hit &6%player% &awith a &2Starvation Flesh"
+    target_message: "&6%player% &chas hit you &cwith a &2Starvation Flesh"
     enchanted: true
