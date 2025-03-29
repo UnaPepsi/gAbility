@@ -27,7 +27,7 @@ public class AntitrapBeacon extends BaseAbility{
             }
             loc.getWorld().getBlockAt(loc).setType(getAbility().getMaterial()); //if the block gets removed by tnt, staff, etc...
             loc.getNearbyPlayers(30).forEach(p -> {
-                float radius = 14.5f;
+                double radius = Ability.fromAbilityType(AbilityType.ANTITRAP_BEACON).getRadius()-0.5;
                 for (int angle = 0; angle <= 360; angle+=5){
                     p.spawnParticle(Particle.DUST,
                             loc.getX()+Math.cos(Math.toRadians(angle))*radius,

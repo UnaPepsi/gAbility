@@ -3,9 +3,14 @@ package ga.guimx.gAbility.listeners;
 import ga.guimx.gAbility.GAbility;
 import ga.guimx.gAbility.abilities.RageBall;
 import ga.guimx.gAbility.abilities.Switcher;
+import ga.guimx.gAbility.utils.Ability;
+import ga.guimx.gAbility.utils.AbilityType;
 import ga.guimx.gAbility.utils.PlayerInfo;
 import ga.guimx.gAbility.utils.ThrownEnderPearl;
-import org.bukkit.entity.*;
+import org.bukkit.entity.AbstractArrow;
+import org.bukkit.entity.EnderPearl;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.ThrowableProjectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
@@ -71,7 +76,8 @@ public class ProjectileAbilityUsageListener implements Listener {
                 }
                 break;
             case "rage_ball":
-                new RageBall().handle(player,null,event.getEntity().getLocation().getNearbyPlayers(10, p -> !p.getUniqueId().equals(player.getUniqueId())));
+                new RageBall().handle(player,null,event.getEntity().getLocation().getNearbyPlayers(Ability.fromAbilityType(AbilityType.RAGE_BALL).getRadius(),
+                        p -> !p.getUniqueId().equals(player.getUniqueId())));
                 break;
             case null, default:
                 break;

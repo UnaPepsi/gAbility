@@ -187,6 +187,7 @@ abilities:
       - "&dstore.mymcserver.com"
     cooldown: 300
     duration: 60 #duration before the beacon automatically breaks
+    radius: 15
     used_message: "&aYou have used an &bAnti-trap Beacon&a, no player will be able to build in a radius of 15 blocks"
     target_message: "&cThere's an &bAnti-trap Beacon &cnearby, hit it 20 times to break it!"
     enchanted: true
@@ -237,6 +238,7 @@ abilities:
       - "&dstore.mymcserver.com"
     cooldown: 300
     duration: 7
+    radius: 10
     used_message: "&aYou have used a &6Rage Ball &aand have gained Strength II and Resistance III for 7 seconds"
     target_message: "&6%player% &chas hit you with a &6Rage Ball&c. You've been debuffed for 7 seconds"
     enchanted: true
@@ -254,6 +256,7 @@ abilities:
       - "&dstore.mymcserver.com"
     cooldown: 300
     duration: 60
+    radius: 20
     used_message: "&aYou have spawned a &6Portable Bard"
     enchanted: true
   starvation_flesh:

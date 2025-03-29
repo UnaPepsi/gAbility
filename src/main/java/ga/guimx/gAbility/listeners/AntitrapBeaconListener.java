@@ -39,7 +39,9 @@ public class AntitrapBeaconListener implements Listener {
         }
         //cancel if beacon nearby
         //checking worlds is necessary as if they're in different worlds Location#distance would throw an exception
-        if (PlayerInfo.getBeaconsPlaced().keySet().stream().anyMatch(loc -> loc.getWorld().equals(event.getBlockPlaced().getWorld()) && loc.distance(event.getBlockPlaced().getLocation()) <= 15)){
+        if (PlayerInfo.getBeaconsPlaced().keySet().stream().anyMatch(loc ->
+                loc.getWorld().equals(event.getBlockPlaced().getWorld()) &&
+                loc.distance(event.getBlockPlaced().getLocation()) <= Ability.fromAbilityType(AbilityType.ANTITRAP_BEACON).getRadius())){
             event.setCancelled(true);
             event.getPlayer().sendMessage(Chat.translate(GAbility.getPrefix()+ Ability.fromAbilityType(AbilityType.ANTITRAP_BEACON).getMessageTargets()));
         }
@@ -92,7 +94,7 @@ public class AntitrapBeaconListener implements Listener {
             }
             double playerX = player.getX();
             double playerZ = player.getZ();
-            float radius = 14.5f;
+            double radius = Ability.fromAbilityType(AbilityType.ANTITRAP_BEACON).getRadius()-0.5;
             for (int angle = 0; angle <= 360; angle+=5){
                 player.spawnParticle(Particle.DUST,
                         playerX+Math.cos(Math.toRadians(angle))*radius,

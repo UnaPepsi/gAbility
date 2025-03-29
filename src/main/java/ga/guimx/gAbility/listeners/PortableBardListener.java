@@ -29,6 +29,6 @@ public class PortableBardListener implements Listener {
             );
         }
         entity.setHealth(entity.getHealth()-1);
-        entity.setCustomName(Chat.translate(Ability.fromAbilityType(AbilityType.PORTABLE_BARD).getName()+" &f♥"+(int)entity.getHealth()));
+        entity.setCustomName(Chat.translate(Ability.fromAbilityType(AbilityType.PORTABLE_BARD).getName()+" &c♥"+(int)entity.getHealth()));
     }
 }

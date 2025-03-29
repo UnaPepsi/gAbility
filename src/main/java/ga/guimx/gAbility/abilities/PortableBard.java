@@ -34,7 +34,7 @@ public class PortableBard extends BaseAbility{
             } catch(NullPointerException ignored){}
             livingEntity.setAI(false);
             livingEntity.setCollidable(false);
-            livingEntity.setCustomName(Chat.translate(getAbility().getName()+" &f♥20"));
+            livingEntity.setCustomName(Chat.translate(getAbility().getName()+" &c♥20"));
             livingEntity.getPersistentDataContainer().set(GAbility.getKey(), PersistentDataType.STRING,"portable_bard");
             livingEntity.setCustomNameVisible(true);
             livingEntity.getAttribute(Attribute.MAX_HEALTH).setBaseValue(20);
@@ -51,7 +51,7 @@ public class PortableBard extends BaseAbility{
                 runnable.cancel();
                 return;
             }
-            int radius = 20;
+            double radius = getAbility().getRadius();
             for (int angle = 0; angle <= 360; angle+=5){
                 player.spawnParticle(Particle.DUST,
                         entitySpawned.getX()+Math.cos(Math.toRadians(angle))*radius,
@@ -62,7 +62,7 @@ public class PortableBard extends BaseAbility{
             entitySpawned.getEquipment().setItemInMainHand(new ItemStack(materials[GAbility.getRandom().nextInt(0,4)]));
 
             try {
-                if (entitySpawned.getLocation().distance(player.getLocation()) > 20) {
+                if (entitySpawned.getLocation().distance(player.getLocation()) > getAbility().getRadius()) {
                     return;
                 }
             } catch(IllegalArgumentException e){

@@ -23,6 +23,7 @@ public class Ability {
     private final String errorMessage;
     private final boolean enchanted;
     private final EntityType entityType;
+    private final double radius;
     public static Ability fromAbilityType(AbilityType abilityType){
         return PluginConfig.getAbilities().get(abilityType);
     }

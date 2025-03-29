@@ -81,6 +81,7 @@ public class PluginConfig {
                         .duration(config.getLong(path+"duration"))
                         .messageTargets(config.getString(path+"target_message"))
                         .errorMessage(config.getString(path+"error_message"))
+                        .radius(config.getDouble(path+"radius"))
                         .build()
                 );
             }
