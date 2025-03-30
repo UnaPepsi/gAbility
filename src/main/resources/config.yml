@@ -270,3 +270,26 @@ abilities:
     used_message: "&aYou have hit &6%player% &awith a &2Starvation Flesh"
     target_message: "&6%player% &chas hit you &cwith a &2Starvation Flesh"
     enchanted: true
+  berserk:
+    material_type: RED_DYE
+    name: "&cBerserk Ability"
+    lore:
+      - "&7Get Strength II, Resistance III and Regeneration III for 10 seconds"
+      - "&7When activated, you won't be able to use potions for 10 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 300
+    duration: 10
+    used_message: "&aYou have used a &cBerserk Ability &aand have gained buffs!"
+    error_message: "&cYou can't use potions while on Berserk Ability"
+    enchanted: true
+  medkit:
+    material_type: PAPER
+    name: "&aMedkit"
+    lore:
+      - "&7Receive 10 extra hearts, Resistance III, and Regeneration III for 10 seconds"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 120
+    duration: 10
+    used_message: "&aYou have used a MedKit and have gained buffs!"

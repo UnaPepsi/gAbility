@@ -39,4 +39,6 @@ public  class PlayerInfo {
     private static final HashMap<UUID,Double> playersWithRiskyMode = new HashMap<>(); //player:damage_boost
     @Getter
     private static final List<UUID> playersWithGuardianAngel = new ArrayList<>();
+    @Getter
+    private static final List<UUID> playersWithBerserk = new ArrayList<>();
 }

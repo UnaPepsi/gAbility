@@ -22,8 +22,16 @@ public class AbilityUsageListener implements Listener {
     void playerInteract(PlayerInteractEvent event){
         if (event.getItem() == null){return;}
         ItemStack item = event.getItem();
-        PersistentDataContainerView container = item.getPersistentDataContainer();
         Player player = event.getPlayer();
+        if (item.getType().toString().endsWith("POTION") &&
+                PlayerInfo.getPlayersWithBerserk().contains(player.getUniqueId()) &&
+                event.getAction().isRightClick())
+        {
+            event.setCancelled(true);
+            player.sendMessage(Chat.translate(GAbility.getPrefix()+Ability.fromAbilityType(AbilityType.BERSERK).getErrorMessage()));
+            return;
+        }
+        PersistentDataContainerView container = item.getPersistentDataContainer();
         String itemType = container.get(GAbility.getKey(), PersistentDataType.STRING);
         if (itemType == null) return;
         if (item.getType().toString().endsWith("SPAWN_EGG")) event.setCancelled(true);
@@ -42,6 +50,8 @@ public class AbilityUsageListener implements Listener {
                 case "risky_mode" -> new RiskyMode().handle(player,item);
                 case "guardian_angel" -> new GuardianAngel().handle(player,item);
                 case "portable_bard" -> new PortableBard().handle(player,item,event.getClickedBlock() != null ? event.getClickedBlock().getLocation().add(0,1,0) : player.getLocation());
+                case "berserk" -> new Berserk().handle(player,item);
+                case "medkit" -> new Medkit().handle(player,item);
             }
         }else if (event.getAction().isLeftClick()){
             switch (itemType) {
@@ -64,6 +74,8 @@ public class AbilityUsageListener implements Listener {
                 case "rage_ball" -> new RageBall().checks(player);
                 case "portable_bard" -> new PortableBard().checks(player);
                 case "starvation_flesh" -> new StarvationFlesh().checks(player);
+                case "berserk" -> new Berserk().checks(player);
+                case "medkit" -> new Medkit().checks(player);
             }
         }
     }

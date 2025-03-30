@@ -22,7 +22,9 @@ public enum AbilityType {
     GUARDIAN_ANGEL("guardian_angel"),
     RAGE_BALL("rage_ball"),
     PORTABLE_BARD("portable_bard"),
-    STARVATION_FLESH("starvation_flesh");
+    STARVATION_FLESH("starvation_flesh"),
+    BERSERK("berserk"),
+    MEDKIT("medkit");
     private final String value;
     AbilityType(String value){
         this.value = value;
