@@ -9,6 +9,7 @@ import ga.guimx.gAbility.utils.PlayerInfo;
 import io.papermc.paper.persistence.PersistentDataContainerView;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -18,7 +19,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 public class AbilityUsageListener implements Listener {
     public AbilityUsageListener(){}
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     void playerInteract(PlayerInteractEvent event){
         if (event.getItem() == null){return;}
         ItemStack item = event.getItem();

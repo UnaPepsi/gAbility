@@ -26,7 +26,7 @@ public class FocusMode extends BaseAbility{
         Player playerToFocus = PlayerInfo.getLastPlayersAttacked().get(player.getUniqueId()).getAttacker();
         PlayerInfo.getPlayersWithFocusMode().put(player.getUniqueId(),playerToFocus.getUniqueId());
         player.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getUsedMessage()
-                .replace("%player%",player.getName())));
+                .replace("%player%",playerToFocus.getName())));
         playerToFocus.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getMessageTargets()
                 .replace("%player%", player.getName())));
         Task.runLater(() -> PlayerInfo.getPlayersWithFocusMode().remove(player.getUniqueId()), getAbility().getDuration()*20);

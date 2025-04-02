@@ -13,7 +13,7 @@ public class RiskyMode extends BaseAbility{
     @Override
     protected void abilityLogic(Player player, ItemStack item, Object... unused) {
         item.setAmount(item.getAmount()-1);
-        double damageBoost = 35*Math.pow(((20-player.getHealth())/17),2);
+        double damageBoost = Math.min(35*Math.pow(((20-player.getHealth())/17),2),35);
         PlayerInfo.getPlayersWithRiskyMode().put(player.getUniqueId(),damageBoost);
         player.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getUsedMessage()
                 .replace("%boost%",String.format(Locale.US,"%.2f",damageBoost))));
