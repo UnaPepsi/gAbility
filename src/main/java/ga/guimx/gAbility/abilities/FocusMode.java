@@ -13,7 +13,7 @@ public class FocusMode extends BaseAbility{
     public boolean checks(Player player){
         if (!super.checks(player)) return false;
         if (!PlayerInfo.getLastPlayersAttacked().containsKey(player.getUniqueId()) ||
-                System.currentTimeMillis() - PlayerInfo.getLastPlayersAttacked().get(player.getUniqueId()).getWhen() > 15*1000
+                System.currentTimeMillis() - PlayerInfo.getLastPlayersAttacked().get(player.getUniqueId()).when() > 15*1000
         ){
             player.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getErrorMessage()));
             return false;
@@ -23,7 +23,7 @@ public class FocusMode extends BaseAbility{
     @Override
     protected void abilityLogic(Player player, ItemStack item, Object... unused) {
         item.setAmount(item.getAmount()-1);
-        Player playerToFocus = PlayerInfo.getLastPlayersAttacked().get(player.getUniqueId()).getAttacker();
+        Player playerToFocus = PlayerInfo.getLastPlayersAttacked().get(player.getUniqueId()).attacker();
         PlayerInfo.getPlayersWithFocusMode().put(player.getUniqueId(),playerToFocus.getUniqueId());
         player.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getUsedMessage()
                 .replace("%player%",playerToFocus.getName())));

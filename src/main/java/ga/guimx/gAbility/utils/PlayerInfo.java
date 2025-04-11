@@ -41,4 +41,6 @@ public  class PlayerInfo {
     private static final List<UUID> playersWithGuardianAngel = new ArrayList<>();
     @Getter
     private static final List<UUID> playersWithBerserk = new ArrayList<>();
+    @Getter
+    private static final List<Copycat> playersWithCopycat = new ArrayList<>();
 }

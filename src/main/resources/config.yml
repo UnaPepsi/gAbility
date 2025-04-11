@@ -293,3 +293,30 @@ abilities:
     cooldown: 120
     duration: 10
     used_message: "&aYou have used a MedKit and have gained buffs!"
+  close_call:
+    material_type: COOKIE
+    name: "&cClose Call"
+    lore:
+      - "&7Receive Regeneration 5 and Strength II for 12 seconds"
+      - "&7if used below 4 hearts, otherwise receive nothing"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 180
+    duration: 12
+    used_message: "&aYou have used a &cClose Call &aand have received buffs!"
+    error_message: "&cYou weren't below 4 hearts. You have received no buffs"
+    enchanted: true
+  copycat:
+    material_type: SPIDER_EYE
+    name: "&eCopycat"
+    lore:
+      - "&7Hit a player 3 times to activate a 15 second timer in which you'll"
+      - "&7be able to interact with every block placed/opened/closed by them"
+      - "&7within that timer"
+      - ""
+      - "&dstore.mymcserver.com"
+    cooldown: 180
+    duration: 15
+    used_message: "&aYou have hit &6%player% &awith a &eCopycat&a!"
+    target_message: "&6%player% &chas hit you with a &eCopycat&c!"
+    enchanted: true

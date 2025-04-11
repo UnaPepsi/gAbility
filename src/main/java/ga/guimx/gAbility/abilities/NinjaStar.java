@@ -12,7 +12,7 @@ public class NinjaStar extends BaseAbility{
     public boolean checks(Player player){
         if (!super.checks(player)) return false;
         if (!PlayerInfo.getLastPlayersHit().containsKey(player.getUniqueId()) ||
-            System.currentTimeMillis() - PlayerInfo.getLastPlayersHit().get(player.getUniqueId()).getWhen() > getAbility().getDuration()*1000
+            System.currentTimeMillis() - PlayerInfo.getLastPlayersHit().get(player.getUniqueId()).when() > getAbility().getDuration()*1000
         ){
             player.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getErrorMessage()));
             return false;
@@ -21,7 +21,7 @@ public class NinjaStar extends BaseAbility{
     }
     @Override
     protected void abilityLogic(Player player, ItemStack item, Object... unused) {
-        Player playerToTeleport = PlayerInfo.getLastPlayersHit().get(player.getUniqueId()).getAttacker();
+        Player playerToTeleport = PlayerInfo.getLastPlayersHit().get(player.getUniqueId()).attacker();
         player.sendMessage(Chat.translate(GAbility.getPrefix()+ getAbility().getUsedMessage()
                 .replace("%player%", playerToTeleport.getName())));
         item.setAmount(item.getAmount()-1);

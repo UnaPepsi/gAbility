@@ -53,6 +53,7 @@ public class AbilityUsageListener implements Listener {
                 case "portable_bard" -> new PortableBard().handle(player,item,event.getClickedBlock() != null ? event.getClickedBlock().getLocation().add(0,1,0) : player.getLocation());
                 case "berserk" -> new Berserk().handle(player,item);
                 case "medkit" -> new Medkit().handle(player,item);
+                case "close_call" -> new CloseCall().handle(player,item);
             }
         }else if (event.getAction().isLeftClick()){
             switch (itemType) {
@@ -77,6 +78,7 @@ public class AbilityUsageListener implements Listener {
                 case "starvation_flesh" -> new StarvationFlesh().checks(player);
                 case "berserk" -> new Berserk().checks(player);
                 case "medkit" -> new Medkit().checks(player);
+                case "close_call" -> new CloseCall().checks(player);
             }
         }
     }

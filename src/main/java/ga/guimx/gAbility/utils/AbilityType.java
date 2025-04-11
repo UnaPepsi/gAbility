@@ -24,7 +24,9 @@ public enum AbilityType {
     PORTABLE_BARD("portable_bard"),
     STARVATION_FLESH("starvation_flesh"),
     BERSERK("berserk"),
-    MEDKIT("medkit");
+    MEDKIT("medkit"),
+    CLOSE_CALL("close_call"),
+    COPYCAT("copy_cat");
     private final String value;
     AbilityType(String value){
         this.value = value;

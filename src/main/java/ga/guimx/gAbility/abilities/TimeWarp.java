@@ -13,7 +13,7 @@ public class TimeWarp extends BaseAbility{
     public boolean checks(Player player){
         if (!super.checks(player)) return false;
         if (!PlayerInfo.getLastThrownEnderPearl().containsKey(player.getUniqueId()) ||
-            System.currentTimeMillis() - PlayerInfo.getLastThrownEnderPearl().get(player.getUniqueId()).getWhen() > getAbility().getDuration()*1000
+            System.currentTimeMillis() - PlayerInfo.getLastThrownEnderPearl().get(player.getUniqueId()).when() > getAbility().getDuration()*1000
         ){
             player.sendMessage(Chat.translate(GAbility.getPrefix()+getAbility().getErrorMessage()));
             return false;
@@ -24,7 +24,7 @@ public class TimeWarp extends BaseAbility{
     protected void abilityLogic(Player player, ItemStack item, Object... unused) {
         player.sendMessage(Chat.translate(GAbility.getPrefix()+ getAbility().getUsedMessage()));
         item.setAmount(item.getAmount()-1);
-        Location location = PlayerInfo.getLastThrownEnderPearl().get(player.getUniqueId()).getLocation().clone();
+        Location location = PlayerInfo.getLastThrownEnderPearl().get(player.getUniqueId()).location().clone();
         Task.runLater(() -> player.teleport(location),3*20);
     }
 }

@@ -61,6 +61,7 @@ public final class GAbility extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GuardianAngelListener(),this);
         getServer().getPluginManager().registerEvents(new PortableBardListener(),this);
         getServer().getPluginManager().registerEvents(new StarvationFleshListener(),this);
+        getServer().getPluginManager().registerEvents(new CopycatListener(),this);
     }
     void checkForUpdates(){
         try{

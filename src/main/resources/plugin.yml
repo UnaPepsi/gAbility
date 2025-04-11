@@ -1,5 +1,5 @@
 name: gAbility
-version: '1.5.1'
+version: '1.6.0'
 main: ga.guimx.gAbility.GAbility
 api-version: '1.21.4'
 author: 'guimx'
